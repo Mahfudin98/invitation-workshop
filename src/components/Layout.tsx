@@ -1,8 +1,36 @@
 import Image from "next/image";
 import useShrunk from "../store/shrunk";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Layout = ({ children }: any) => {
-  const { isShrunk, isShow } = useShrunk();
+  const router = useRouter();
+  const [isShrunk, setIsShrunk] = useState(false);
+  const [isShow, setIsShow] = useState(router.route);
+
+  useEffect(() => {
+    function handleRouteChange() {
+      setIsShrunk(true);
+      setIsShow(router.route);
+    }
+
+    function handleRouteComplete() {
+      setTimeout(() => {
+        setIsShrunk(false);
+      }, 300);
+      setIsShow(router.route);
+    }
+
+    router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteComplete);
+    router.events.on("routeChangeError", handleRouteComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteComplete);
+      router.events.off("routeChangeError", handleRouteComplete);
+    };
+  }, [isShow, router]);
 
   return (
     <main className="grid w-full place-items-center">
@@ -69,7 +97,13 @@ const Layout = ({ children }: any) => {
           }`}
         >
           <aside className="items-center justify-center text-center w-full grid-flow-col">
-            <Image src={'/logo/vertical-08.png'} width={720} height={720} alt="logo" className="w-8 h-8" />
+            <Image
+              src={"/logo/vertical-08.png"}
+              width={720}
+              height={720}
+              alt="logo"
+              className="w-8 h-8"
+            />
             <p>Copyright © 2024 - LS SKincare Reborn</p>
           </aside>
         </footer>
