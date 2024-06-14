@@ -14,7 +14,7 @@ const Layout = ({ children }: any) => {
               : "-top-[35%] opacity-100"
           }`}
         >
-          <div className="absolute top-[60%] 2xl:top-[65%] left-0 md:-left-10 lg:left-0 z-10 flex items-center justify-center w-full">
+          <div className="absolute top-[70%] 2xl:top-[65%] left-0 md:-left-10 lg:left-0 z-10 flex items-center justify-center w-full">
             <Image
               src={"/logo/vertical-06.png"}
               alt="logo"
