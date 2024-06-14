@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-2;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply backdrop-blur-xl bg-base-300/65 rounded-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent; /* Warna track (bagian latar belakang scrollbar) */
+}
