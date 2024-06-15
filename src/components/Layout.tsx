@@ -36,7 +36,7 @@ const Layout = ({ children }: any) => {
     <main className="grid w-full place-items-center">
       <div className="relative flex flex-col w-full max-h-screen min-h-screen custom-scrollbar overflow-hidden border-0 lg:border lg:max-w-lg lg:w-full lg:rounded-md">
         <div
-          className={`absolute left-0 md:left-10 lg:left-0 w-full transition-all duration-700 ${
+          className={`absolute left-0 md:left-10 lg:left-0 w-full transition-all duration-700 ease-bounce ${
             isShrunk ? "-top-[100%] opacity-0" : "-top-[25%] opacity-100"
           } ${isShow === "/" ? "hidden" : ""}`}
         >
