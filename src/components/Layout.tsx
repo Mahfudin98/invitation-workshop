@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Layout = ({ children }: any) => {
-  const router = useRouter();
   const [isShrunk, setIsShrunk] = useState(false);
-  const [isShow, setIsShow] = useState("/");
+  const router = useRouter();
+  const [isShow, setIsShow] = useState(router.route);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -13,12 +13,12 @@ const Layout = ({ children }: any) => {
       setIsShrunk(true);
     };
   
-    const handleRouteComplete = () => {
+    const handleRouteComplete = (url:any) => {
       console.log('Route change complete.');
       setTimeout(() => {
         setIsShrunk(false);
       }, 300);
-      setIsShow(router.route);
+      setIsShow(url);
     };
 
     router.events.on("routeChangeStart", handleRouteChange);
@@ -36,9 +36,9 @@ const Layout = ({ children }: any) => {
     <main className="grid w-full place-items-center">
       <div className="relative flex flex-col w-full max-h-screen min-h-screen custom-scrollbar overflow-hidden border-0 lg:border lg:max-w-lg lg:w-full lg:rounded-md">
         <div
-          className={`absolute left-0 md:left-10 lg:left-0 w-full transition-all duration-700 ease-bounce ${
-            isShrunk ? "-top-[100%] opacity-0" : "-top-[35%] opacity-100"
-          } ${isShow === "/" ? "hidden" : ""}`}
+          className={`absolute left-0 md:left-10 lg:left-0 w-full transition-all duration-700 ${
+            isShrunk ? '-top-[100%] opacity-0' : '-top-[35%] opacity-100'
+          } ${isShow === '/' ? 'hidden' : ''}`}
         >
           <div className="absolute top-[75%] 2xl:top-[65%] left-0 md:-left-10 lg:left-0 z-10 flex items-center justify-center w-full">
             <Image
@@ -79,7 +79,7 @@ const Layout = ({ children }: any) => {
           <div
             className={`bg-primary w-16 relative rounded-t-md p-4 shadow-md shadow-primary bg-opacity-80 transition-all duration-700 ease-bounce ${
               isShrunk ? "h-[10%] opacity-0" : "h-[30%] opacity-100"
-            } ${isShow !== "/" ? "hidden" : ""}`}
+            } ${isShow !== '/' ? 'hidden' : ''}`}
           >
             <h1 className="card-title font-mono whitespace-nowrap -rotate-90 my-32 text-primary-content opacity-80">
               JUNI 20, 2024
