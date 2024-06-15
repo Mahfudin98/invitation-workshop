@@ -1,17 +1,15 @@
 import Image from "next/image";
-import useShrunk from "../store/shrunk";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Layout = ({ children }: any) => {
   const router = useRouter();
   const [isShrunk, setIsShrunk] = useState(false);
-  const [isShow, setIsShow] = useState(router.route);
+  const [isShow, setIsShow] = useState('/');
 
   useEffect(() => {
     function handleRouteChange() {
       setIsShrunk(true);
-      setIsShow(router.route);
     }
 
     function handleRouteComplete() {
