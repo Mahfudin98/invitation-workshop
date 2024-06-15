@@ -59,16 +59,14 @@ const Layout = ({ children }: any) => {
         </div>
 
         <main className={`relative z-20`}>
-          <div className="relative z-10"> 
-          {children}
-          </div>
+          <div className="relative z-10">{children}</div>
           <div className="fixed inset-0 lg:absolute flex items-center justify-center">
             <div
-              className={`absolute w-full transition-all md:left-10 lg:left-0 duration-1000 ease-bounce ${
-                isShow === "/"
-                  ? "top-[25%%] opacity-100 lg:top-[16.9%] xl:top-[16.5%] 2xl:top-[22.8%]"
-                  : "-top-[100%] opacity-0"
-              }`}
+              className={`absolute w-full transition-all md:left-10 lg:left-0 duration-700 ease-bounce ${
+                isShrunk
+                  ? "-top-[100%] opacity-0"
+                  : "top-[25%%] opacity-100 lg:top-[16.9%] xl:top-[16.5%] 2xl:top-[22.8%]"
+              } ${isShow === "/" ? "" : "hidden"}`}
             >
               <Image
                 src={"/ornamen/ornamen-1.png"}

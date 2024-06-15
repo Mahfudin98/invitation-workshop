@@ -7,6 +7,15 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
+    fontFamily: {
+      sans: ["ui-sans-serif", "system-ui"],
+      serif: ["ui-serif", "Georgia"],
+      mono: ["ui-monospace", "SFMono-Regular"],
+      display: ["Oswald"],
+      body: ['"Open Sans"'],
+      invit: ["Oleo Script"],
+      ls: ["Noto Serif"],
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

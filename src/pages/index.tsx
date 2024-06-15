@@ -5,6 +5,11 @@ import useShrunk from "../store/shrunk";
 export default function Home() {
   return (
     <div className="grid place-items-center min-h-screen scale-100">
+      <div className="absolute top-5 text-center font-invit">
+      <h1 className="text-3xl font-bold text-primary">Invitation</h1>
+      <h1 className="text-2xl font-bold text-primary">Gathering & Workshop</h1>
+      <h1 className="text-xl font-bold text-primary font-ls">LS Skincare Reborn</h1>
+      </div>
       <div className="flex flex-col items-center justify-center p-4 text-center relative overflow-hidden">
         <Link
           href="/about"
@@ -21,11 +26,11 @@ export default function Home() {
             className="absolute w-40 animate-pulse"
           />
         </Link>
-        <div className="fixed top-[40%] md:top-[44.5%] lg:top-[41%] 2xl:top-[43%] w-full">
+        {/* <div className="fixed top-[45%] md:top-[44.5%] lg:top-[41%] 2xl:top-[43%] w-full">
           <div
             className={`w-full transition-all duration-300 ease-bounce h-28 bg-primary ring-2 ring-white`}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
