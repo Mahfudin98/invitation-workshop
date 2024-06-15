@@ -84,8 +84,8 @@ const Layout = ({ children }: any) => {
               isShrunk ? "h-[10%] opacity-0" : "h-[30%] opacity-100"
             } ${isShow !== "/" ? "hidden" : ""}`}
           >
-            <h1 className="card-title font-mono whitespace-nowrap -rotate-90 my-32 text-primary-content opacity-80">
-              JUNI 20, 2024
+            <h1 className="card-title font-invit whitespace-nowrap -rotate-90 my-32 text-base-content opacity-80">
+              JULY 06, 2024
             </h1>
           </div>
         </div>

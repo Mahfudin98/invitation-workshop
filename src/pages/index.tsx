@@ -9,6 +9,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold text-primary">Invitation</h1>
       <h1 className="text-2xl font-bold text-primary">Gathering & Workshop</h1>
       <h1 className="text-xl font-bold text-primary font-ls">LS Skincare Reborn</h1>
+      <h1 className="text-xl font-bold text-primary">2024</h1>
       </div>
       <div className="flex flex-col items-center justify-center p-4 text-center relative overflow-hidden">
         <Link
