@@ -8,16 +8,18 @@ const Layout = ({ children }: any) => {
   const [isShow, setIsShow] = useState("/");
 
   useEffect(() => {
-    function handleRouteChange() {
+    const handleRouteChange = () => {
+      console.log('Route is changing...');
       setIsShrunk(true);
-    }
-
-    function handleRouteComplete() {
+    };
+  
+    const handleRouteComplete = () => {
+      console.log('Route change complete.');
       setTimeout(() => {
         setIsShrunk(false);
       }, 300);
       setIsShow(router.route);
-    }
+    };
 
     router.events.on("routeChangeStart", handleRouteChange);
     router.events.on("routeChangeComplete", handleRouteComplete);
