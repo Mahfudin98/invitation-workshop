@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Layout = ({ children }: any) => {
   const router = useRouter();
   const [isShrunk, setIsShrunk] = useState(false);
-  const [isShow, setIsShow] = useState('/');
+  const [isShow, setIsShow] = useState("/");
 
   useEffect(() => {
     function handleRouteChange() {
@@ -28,19 +28,17 @@ const Layout = ({ children }: any) => {
       router.events.off("routeChangeComplete", handleRouteComplete);
       router.events.off("routeChangeError", handleRouteComplete);
     };
-  }, [isShow, router]);
+  }, [router]);
 
   return (
     <main className="grid w-full place-items-center">
       <div className="relative flex flex-col w-full max-h-screen min-h-screen custom-scrollbar overflow-hidden border-0 lg:border lg:max-w-lg lg:w-full lg:rounded-md">
         <div
           className={`absolute left-0 md:left-10 lg:left-0 w-full transition-all duration-700 ease-bounce ${
-            isShrunk || isShow === "/"
-              ? "-top-[100%] opacity-0"
-              : "-top-[35%] opacity-100"
-          }`}
+            isShrunk ? "-top-[100%] opacity-0" : "-top-[35%] opacity-100"
+          } ${isShow === "/" ? "hidden" : ""}`}
         >
-          <div className="absolute top-[70%] 2xl:top-[65%] left-0 md:-left-10 lg:left-0 z-10 flex items-center justify-center w-full">
+          <div className="absolute top-[75%] 2xl:top-[65%] left-0 md:-left-10 lg:left-0 z-10 flex items-center justify-center w-full">
             <Image
               src={"/logo/vertical-06.png"}
               alt="logo"
@@ -78,10 +76,8 @@ const Layout = ({ children }: any) => {
         <div className="absolute bottom-0 left-4 w-full h-full grid items-end">
           <div
             className={`bg-primary w-16 relative rounded-t-md p-4 shadow-md shadow-primary bg-opacity-80 transition-all duration-700 ease-bounce ${
-              isShrunk || isShow !== "/"
-                ? "h-[10%] opacity-0"
-                : "h-[30%] opacity-100"
-            }`}
+              isShrunk ? "h-[10%] opacity-0" : "h-[30%] opacity-100"
+            } ${isShow !== "/" ? "hidden" : ""}`}
           >
             <h1 className="card-title font-mono whitespace-nowrap -rotate-90 my-32 text-primary-content opacity-80">
               JUNI 20, 2024
